@@ -1,0 +1,141 @@
+\documentclass{beamer}
+%\usetheme{Boadilla}
+\usepackage{ru}
+\usepackage{amsmath}
+\usepackage{chronosys}
+\usepackage{tikz}
+
+\usetikzlibrary{arrows, calc, decorations.markings, positioning}
+
+\input definitions_slides.tex
+
+\title{Church-Turing These}
+\subtitle{Een nieuw paradijs}
+\author{Pieter van Engelen}
+\institute{Radboud Universiteit Nijmegen}
+\date{03-06-2022}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}
+    \tableofcontents
+\end{frame}
+
+\section{De tijd}
+\begin{frame}
+    \begin{timeline}{1925}{1950}{2cm}{2.5cm}{7cm}{10cm}
+        \entry{1928}{\small Formulering \emph{Entscheidungsproblem} in \emph{Grundzüge der theoretischen Logik}}
+        \entry{1931}{\small Onvolledigheidsstellingen van Gödel}
+        \entry{1932}{\small Introductie van de $\lambda$-calculus (A. Church)}
+        \entry{1936}{\small Negatieve oplossing \emph{Entscheidungsproblem}}
+        \entry{1937}{\small Introductie \emph{turing machine, halting problem} en negatieve oplossing \emph{Entscheidungsproblem}}
+        \entry{1939}{\small \emph{Systems of logics based on ordinals} (Turing)}
+        \entry{1944}{\small \emph{Introductie Turing-degree} (E. Post)}
+        \entry{1945}{\small \emph{First Draft of a Report on the EDVAC} (von Neumann)}
+    \end{timeline}    
+\end{frame}
+
+\begin{frame}
+    \frametitle{De These}
+    \begin{center}
+        {\Large
+            Every \emph{effectively calculable} function is \emph{computable}
+        }
+        \\
+        \bigskip
+        \bigskip
+        Church (1936), Turing (1937)
+    \end{center}
+\end{frame}
+
+\subsection{De protagonisten}
+\begin{frame}
+    \frametitle{De protagonisten}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \includegraphics[width=\textwidth]{Church.jpeg}
+        \column{0.5\textwidth}
+        {\Large Alonzo Church}
+
+        (1903 - 1995)
+
+        \begin{itemize}
+            \item Princeton University, USA
+            \item Logicus, wiskundige
+            \item 
+            \item Grondlegger van de informatica
+            \item 'Bedenker' van de $\lambda$-calculus
+            \item 
+        \end{itemize}    
+    \end{columns}
+\end{frame}
+
+
+\section{De situatie}
+\subsection{Entscheidungsproblem}
+\begin{frame}
+    \frametitle{Das Entscheidungsproblem}
+\end{frame}
+
+\subsection{Berekenbaarheidsmodellen}
+\begin{frame}
+    \frametitle{De $\lambda$-calculus}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Recursietheorie}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Turing machines}
+\end{frame}
+
+\begin{frame}
+    \frametitle{De equivalentie}
+
+    $$\lambda-\text{definieerbaar} \stackrel{\scriptscriptstyle \text{(Turing 1937)}}{\Longrightarrow} \text{Turing berekenbaar}$$
+
+    $$\text{Turing berekenbaar} \stackrel{\scriptscriptstyle \text{(Turing 1937)}}{\Longrightarrow} \mu-\text{recursief} $$
+
+    $$\mu-\text{recursief} \stackrel{\scriptscriptstyle \text{(Kleene 1936)}}{\Longrightarrow} \lambda-\text{definieerbaar} $$
+\end{frame}
+
+\subsection{De kracht van berekenbaarheid}
+\begin{frame}
+    \frametitle{Halting Problem}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Universaliteits principe}
+\end{frame}
+
+\section{De these}
+\begin{frame}
+    \frametitle{De These}
+    \begin{center}
+        {\Large
+            Every \emph{effectively calculable} function is \emph{computable}
+        }
+        \\
+        \bigskip
+        \bigskip
+        Church (1936), Turing (1937)
+    \end{center}
+\end{frame}
+
+
+\section{Huidige stand van zaken}
+\subsection{Hypercomputation}
+\begin{frame}
+    \frametitle{Hypercomputation}
+\end{frame}
+\subsection{Quantum computing}
+\begin{frame}
+    \frametitle{Quantum computing}
+\end{frame}
+
+\end{document}
