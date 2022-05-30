@@ -183,6 +183,20 @@
     $$\mu-\text{recursief} \stackrel{\scriptscriptstyle \text{(Kleene 1936)}}{\Longrightarrow} \lambda-\text{definieerbaar} $$
 \end{frame}
 
+\begin{frame}
+    \frametitle{De equivalentie}
+
+    De uitspraken:
+    \begin{itemize}
+        \item Een functie $f:\mathbb{N} \rightarrow \mathbb{N}$ is berekenbaar
+        \item Er bestaat een $\lambda$-term $F$ zdd $f(n) = m \Leftrightarrow F \ulcorner n\urcorner = \ulcorner m\urcorner $
+        \item Er bestaat een $\mu$-recursieve functie $\phi$ zdd $f(n) = m \Leftrightarrow \phi(n) = m$
+        \item Er bestaat een T.M. zdd $f(n) = m \Leftrightarrow \text{T.M.}_f \text{ geeft bij invoer } \ulcorner n\urcorner \text{ uitvoer } \ulcorner m\urcorner$
+    \end{itemize}
+
+    zijn synoniem met elkaar.
+\end{frame}
+
 \subsection{De kracht van berekenbaarheid}
 \begin{frame}
     \frametitle{Halting Problem}
@@ -200,14 +214,14 @@
             Every \emph{effectively calculable} function is \emph{computable}
         }
         \\
-        \bigskip
-        \bigskip
         Church (1936), Turing (1937)
+
+        Elke \emph{uitrekenbare} functie is \emph{berekenbaar}
     \end{center}
 \end{frame}
 
 
-\section{Huidige stand van zaken}
+\section{Voorbij de these?}
 \subsection{Hypercomputation}
 \begin{frame}
     \frametitle{Hypercomputation}
@@ -216,5 +230,15 @@
 \begin{frame}
     \frametitle{Quantum computing}
 \end{frame}
+
+\section*{Tragiek in het paradijs}
+\begin{frame}
+    \frametitle{De protagonisten}
+    \begin{tabular*}{\textwidth}{c c}
+        \includegraphics[width=0.4\textwidth]{Kleene.jpeg} & \includegraphics[width=0.4\textwidth]{Post.jpg} \\
+        {\large Stephen Kleene} (1909-1994) & {\large Emil Post} (1897 - 1954)\\
+    \end{tabular*}
+\end{frame}
+
 
 \end{document}
