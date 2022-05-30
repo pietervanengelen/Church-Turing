@@ -2,8 +2,9 @@
 %\usetheme{Boadilla}
 \usepackage{ru}
 \usepackage{amsmath}
-\usepackage{chronosys}
+%\usepackage{chronosys}
 \usepackage{tikz}
+\usepackage{epigraph}
 
 \usetikzlibrary{arrows, calc, decorations.markings, positioning}
 
@@ -97,14 +98,6 @@
 \begin{frame}
     \frametitle{De protagonisten}
     \begin{tabular*}{\textwidth}{c c}
-%%    \begin{columns}
-%        \column{0.5\textwidth}
-%        \includegraphics[width=0.8\textwidth]{Kleene.jpeg}
-%        {\large Stephen Kleene} (1909-1994)
-%        \column{0.5\textwidth}
-%        \includegraphics[width=0.8\textwidth]{example-image-a}
-%        {\large ???} (1897 - 1954)
-%    \end{columns}
         \includegraphics[width=0.4\textwidth]{Kleene.jpeg} & \includegraphics[width=0.4\textwidth]{example-image-duck} \\
         {\large Stephen Kleene} (1909-1994) & {\large ???} (1897 - 1954)\\
     \end{tabular*}
@@ -114,6 +107,56 @@
 \subsection{Entscheidungsproblem}
 \begin{frame}
     \frametitle{Das Entscheidungsproblem}
+    {\large \textbf{Das Entscheidungsproblem}}
+
+    \begin{center}
+        Vind een algoritme waarmee \\ 
+        de waarheid van een uitspraak in de eerste orde predikaatlogica \\
+        vast te stellen is.
+        \\
+        \bigskip
+        {\small \emph{(D. Hilbert \& W. Ackermann, 1928, Grundzüge der theoretischen Logik)}}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Entscheidungsproblem}
+    \textbf{Eerste orde predikaatlogica} \\
+    (extreem kort door de bocht) 
+    \bigskip
+    
+    Logica met
+    \begin{itemize}
+        \item variabelen
+        \item de gebruikelijke operatoren $\wedge, \vee, \rightarrow, \neg, \ldots$
+        \item predikaten $P(x)$
+        \item universele en existentiële kwantificatie $\forall, \exists$
+    \end{itemize}
+
+    Voorbeelden:
+    $$\forall_{n \in \mathbb{N}}\exists_{m \in \mathbb{N}} [m>n]$$
+    $$\forall_{p, q \in \mathbb{Q}} \exists_{r \in \mathbb{Q}}  [ p < r < q]$$
+    $$\exists_x [P(x)\wedge \forall_y \forall_{y'}[P(y) \wedge P(y') \rightarrow y = y']]$$
+\end{frame}
+
+\begin{frame}
+    \frametitle{Entscheidungsproblem}
+    \textbf{Eerste orde predikaatlogica} \\
+
+    \emph{Afspraak:}
+
+    We hebben het alleen over predikaten en kwantificatie over de natuurlijke getallen $\mathbb{N}$
+
+    \vspace{1cm}
+
+    \emph{Gezocht: }
+    
+    \textbf{Algoritme} wat gegeven een uitspraak roept of die uitspraak \texttt{WAAR} of \texttt{ONWAAR} is.
+
+    \vspace{1cm}
+    \emph{Probleem: }
+    
+    Wat is een algoritme?
 \end{frame}
 
 \subsection{Berekenbaarheidsmodellen}
@@ -123,6 +166,7 @@
 
 \begin{frame}
     \frametitle{Recursietheorie}
+
 \end{frame}
 
 \begin{frame}
