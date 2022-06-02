@@ -5,8 +5,12 @@
 %\usepackage{chronosys}
 \usepackage{tikz}
 \usepackage{epigraph}
+\usepackage{xcolor}
+
 
 \usetikzlibrary{arrows, calc, decorations.markings, positioning}
+
+\usefonttheme[onlymath]{serif}
 
 \input definitions_slides.tex
 
@@ -160,17 +164,117 @@
 \end{frame}
 
 \subsection{Berekenbaarheidsmodellen}
-\begin{frame}
-    \frametitle{De $\lambda$-calculus}
+\begin{frame} 
+    \frametitle{Wat is een algoritme}
+    {\Large Wat is een algoritme??}
+    \vspace{1cm}
+    \begin{itemize}
+        \item<1-> Grootste-gemene-deler van Euclides
+        \item<2-> Zeef van Eratosthenes
+        \item<3-> Gauss-eliminatie
+    \end{itemize}
+\end{frame}
+\begin{frame} 
+    \frametitle{Wat is een algoritme}
+
+    \textbf{Probleem:} Nog geen \emph{formele} definitie van een \emph{algoritme}.
+    \\
+    \vspace{1cm}
+    \begin{onlyenv}<2->
+        Terug naar 1936\only<3->{-ish}.
+        \begin{itemize}
+            \item<4-> Turing machines
+            \item<5-> Recursietheorie
+            \item<6-> $\lambda$-calculus
+        \end{itemize}        
+    \end{onlyenv}
 \end{frame}
 
 \begin{frame}
-    \frametitle{Recursietheorie}
-
+    \frametitle{De $\lambda$-calculus (\emph{Church 1932})}
+    \textbf{De programma's}
+    \begin{align*}
+        x,y,\ldots \in \Lambda & \text{  (Variabelen)}\\
+        M,N\in \Lambda \Rightarrow MN \in \Lambda & \text{  (Applicatie)} \\
+        x, M\in \Lambda \Rightarrow (\lambda x.M) \in \Lambda & \text{  (Abstractie)}
+    \end{align*}
+    \begin{itemize}
+        \item $\lambda x.x$
+        \item $\lambda xy.x$
+        \item $\lambda pqr.pr(qr)$
+        \item $(\lambda x.xx)A$
+        \item $\lambda x.y$
+        \item $\lambda fx.f(f(f(x))) \equiv \ulcorner 3 \urcorner$
+    \end{itemize}    
 \end{frame}
 
 \begin{frame}
-    \frametitle{Turing machines}
+    \frametitle{De $\lambda$-calculus (\emph{Church 1932})}
+
+    \textbf{Actie}
+
+    $$(\lambda x.M)N \longrightarrow_\beta M [x:=N]$$
+
+    \begin{onlyenv}<2->
+            
+        \textbf{Voorbeeld}
+        
+        \begin{align*}
+            (\lambda xyz.zxy)(\mathcolor{red}{\lambda x.xx})(\mathcolor{blue}{\lambda x.x})(\lambda xy.x) & \rightarrow_\beta \\
+            \only<3->{(\lambda yz.z(\mathcolor{red}{\lambda x.xx})y)(\mathcolor{blue}{\lambda x.x})(\lambda xy.x) & \rightarrow_\beta \\}
+            \only<4->{(\lambda z.z(\mathcolor{red}{\lambda x.xx}))\mathcolor{blue}{\lambda x.x}(\lambda xy.x) & \rightarrow_\beta \\}
+            \only<5->{(\lambda xy.x)(\mathcolor{red}{\lambda x.xx}))\mathcolor{blue}{\lambda x.x} & \twoheadrightarrow_\beta  \mathcolor{red}{\lambda x.xx}\\}
+        \end{align*}
+    \end{onlyenv}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Recursietheorie (\emph{Kleene 1935})}
+    \textbf{Initiële functies}
+    \begin{align*}
+        \mathcal{O}(x) & = 0 & \text{Nul}\\
+        \mathcal{S}(x) & = x + 1 & \text{Successor}\\
+        \mathcal{P}^n_i(x_1, \ldots, x_n) & = x_i & \text{Projectie} \\
+        f(\vec{x}) & = h(g_1(\vec{x}), \ldots, g_m(\vec{x})) & \text{Functie compositie}
+    \end{align*}
+    \textbf{Primitieve recursie}
+    \begin{align*}
+        f(\vec{x},0)   & = g(\vec{x}) & \text{0-geval} \\
+        f(\vec{x},n+1) & = h(\vec{x}, y, f(\vec{x},y)) & \text{Recursieve geval}
+    \end{align*}
+    \textbf{$\mu$-recursie}
+    \begin{align*}
+        f(\vec{x}) & = \mu y[g(\vec{x},y)=0] \\
+           & \text{"De kleinste $y$ zodat $g(\vec{x},y)=0$"}
+    \end{align*}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Recursietheorie (\emph{Kleene 1935})}
+    \textbf{Voorbeelden}
+    \begin{columns}
+        \column{0.5\textwidth}
+            \begin{align*}
+                \mathcal{P} (0) & = 0 \\
+                \mathcal{P} (n + 1) & = n
+            \end{align*}
+        \column{0.5\textwidth}
+            \begin{align*}
+                \min (x,0) & = x \\
+                \min (x, y+1) & = \mathcal{P}(\min (x,y))
+            \end{align*}
+        \end{columns}
+        \vspace{1cm}
+        $$f(n) = \mu y [2y= n \vee 2y+1 = n]$$
+\end{frame}
+
+\begin{frame}
+    \frametitle{Turing machines (\emph{Turing 1936})}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \column{0.5\textwidth}
+            \includegraphics[width=\textwidth]{tm.png}
+    \end{columns}
 \end{frame}
 
 \begin{frame}
