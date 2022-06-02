@@ -1,24 +1,26 @@
+%\documentclass[handout]{beamer}
 \documentclass{beamer}
-%\usetheme{Boadilla}
 \usepackage{ru}
 \usepackage{amsmath}
-%\usepackage{chronosys}
 \usepackage{tikz}
 \usepackage{epigraph}
 \usepackage{xcolor}
-
 
 \usetikzlibrary{arrows, calc, decorations.markings, positioning}
 
 \usefonttheme[onlymath]{serif}
 
+%%
+%% Haal mijn eigen definities op.
 \input definitions_slides.tex
+%%
+%%
 
 \title{Church-Turing These}
 \subtitle{Een nieuw paradijs}
 \author{Pieter van Engelen}
 \institute{Radboud Universiteit Nijmegen}
-\date{03-06-2022}
+\date{03-06-2022; Fontys, Sittard}
 
 \begin{document}
 
@@ -272,9 +274,30 @@
     \frametitle{Turing machines (\emph{Turing 1936})}
     \begin{columns}
         \column{0.5\textwidth}
+            \includegraphics[width=0.8\textwidth]{tm.png}
         \column{0.5\textwidth}
-            \includegraphics[width=\textwidth]{tm.png}
+            \begin{itemize}
+                \item<2-> Een eindig alfabet $s_0, s_1, \ldots, s_n$
+                \item<3-> Een eindig aantal toestanden $q_0, q_1, \ldots, q_m$
+                \item<4-> Een potentieel oneindige tape voor de symbolen
+                \item<5-> De acties: $L, R, s_i$.
+                \item<6-> Een eindige lijst van instructies
+            \end{itemize}
     \end{columns}
+\end{frame}
+
+\begin{frame}{}
+    \frametitle{Turing machines (\emph{Turing 1936})}
+    \begin{center}
+        \includegraphics[height=0.3\textheight]{tm.png}
+    \end{center}    
+    \textbf{Voorbeeldinstructies}
+    \begin{description}
+        \item[$q_0\mathbf{0}Rq_1$] Wanneer er in toestand $q_0$ een $\mathbf{0}$ op 
+        de tape staat, zet een stap naar rechts en ga in toestand $q_1$.
+        \item[$q_4\mathbf{1}\mathbf{0}q_8$] Wanneer er in toestand $q_4$ een $\mathbf{1}$
+        op de tape staat, vervang de $\mathbf{0}$ door een $\mathbf{1}$ en ga in toestand $q_8$.
+    \end{description}
 \end{frame}
 
 \begin{frame}
@@ -304,6 +327,69 @@
 \subsection{De kracht van berekenbaarheid}
 \begin{frame}
     \frametitle{Halting Problem}
+    {\Large Iets met oneindigheid}
+    \vspace{1cm}
+
+    \textbf{Probleem:}
+
+    Een algoritme kan eindeloos lang doorgaan, zonder een 'antwoord' te geven.\\
+    \vspace{1cm}
+
+    \begin{tabular*}{0.8\textwidth}{r l}
+        $\lambda$-calculus & $(\lambda x.xx)(\lambda x.xx)$ \\
+        Recursietheorie & $f(n) = \mu y [y<0]$ \\
+        Turing machine & $\{ q_0\mathbf{0}\mathbf{0}q_1, q_1\mathbf{0}\mathbf{0}q_0 \}$
+    \end{tabular*}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Halting Problem}
+    {\Large Iets met oneindigheid}
+    \vspace{1cm}
+
+    \textbf{Probleem:}
+
+    Een algoritme kan eindeloos lang doorgaan, zonder een 'antwoord' te geven.\\
+    \vspace{1cm}
+
+    \textbf{Oplossing:}
+
+    Schrijf een algoritme wat van een gegeven algoritme $P$ bepaalt of deze bij gegeven invoer $n$ een antwoord geeft.
+
+    \begin{center}
+    \only<2->{\Large \color{red}\textbf{Computer says no...}}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Halting Problem}
+
+    \begin{theorem}[Halting Problem]
+        Er bestaat geen algoritme wat bepaalt of een gegeven algoritme $P$ stopt bij gegeven invoer $n$.
+    \end{theorem}
+    \begin{proof}
+        Stel dat er een algoritme $H$ bestaat (*), wat aan de voorwaarden voldoet.
+        Maak een nieuw algoritme $H'$ op de volgende manier:
+        \[
+            H'(n) = \begin{cases}
+                \uparrow & \text{als $H(P,n)=1$} \\
+                1 & \text{als $H(P,n)\uparrow$}
+            \end{cases}
+        \]
+        Beschouw nu $H(H'(n))$. Wanneer $H$ oneindig draait, is $H'$ gedefinieerd, maar dan 
+        zou $H$ juist niet oneindig moeten draaien. Tegenspraak. We geven de aanname (*) de schuld.
+    \end{proof}
+\end{frame}
+
+\begin{frame}{}
+    \frametitle{Entscheidungsproblem}
+
+    \onslide<1->{\textbf{Feit:} Er zijn overaftelbaar veel onoplosbare problemen}
+    \vspace{1cm}
+    \onslide<2->{\textbf{Nog zo een:} Het is \emph{niet} beslisbaar om van een 
+    gegeven programma $P$ te zeggen of het uitvoer $x$ geeft.}
+    \vspace{1cm}
+    \onslide<3->{\textbf{Gevolg:} Het \emph{Entscheidungsproblem} is niet oplosbaar.}
 \end{frame}
 
 \begin{frame}
