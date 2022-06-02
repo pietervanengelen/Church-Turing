@@ -3,8 +3,8 @@
 \beamer@sectionintoc {2}{De situatie}{8}{0}{2}
 \beamer@subsectionintoc {2}{1}{Entscheidungsproblem}{8}{0}{2}
 \beamer@subsectionintoc {2}{2}{Berekenbaarheidsmodellen}{11}{0}{2}
-\beamer@subsectionintoc {2}{3}{De kracht van berekenbaarheid}{16}{0}{2}
-\beamer@sectionintoc {3}{De these}{18}{0}{3}
-\beamer@sectionintoc {4}{Voorbij de these?}{19}{0}{4}
-\beamer@subsectionintoc {4}{1}{Hypercomputation}{19}{0}{4}
-\beamer@subsectionintoc {4}{2}{Quantum computing}{20}{0}{4}
+\beamer@subsectionintoc {2}{3}{De kracht van berekenbaarheid}{31}{0}{2}
+\beamer@sectionintoc {3}{De these}{33}{0}{3}
+\beamer@sectionintoc {4}{Voorbij de these}{34}{0}{4}
+\beamer@subsectionintoc {4}{1}{Hypercomputation}{34}{0}{4}
+\beamer@subsectionintoc {4}{2}{Quantum computing}{35}{0}{4}
